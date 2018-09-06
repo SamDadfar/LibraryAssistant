@@ -2,9 +2,7 @@ package com.webApp.Demo.controller;
 
 import java.util.*;
 import javax.persistence.PostRemove;
-import javax.ws.rs.DefaultValue;
 
-import org.h2.mvstore.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webApp.Demo.domain.Book;
 
-import aj.org.objectweb.asm.Attribute;
 @Controller
 @RequestMapping("/")
 public class BookController {

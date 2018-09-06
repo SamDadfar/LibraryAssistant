@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import com.webApp.Demo.domain.Persone;
 import com.webApp.Demo.exceptions.*;
-import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Service
 @Component
@@ -22,18 +22,18 @@ public class PersoneService {
 		repository.save(student);
 	}
 	public Persone findById(long id) {
-		return repository.findOne(id);
+		return repository.findById(id).orElseThrow(()->new RuntimeException());
 	}
 	public void updateStudent(long id,Persone student) {
-		Persone temp=null;
+		Optional<Persone> temp=null;
 		try {
-		temp=repository.findOne(id);
-		repository.save(temp);
+		temp=repository.findById(id);
+		repository.save(temp.orElseThrow(()->new RuntimeException()));
 		}catch(NotFoundStudentException e) {new NotFoundStudentException();}
 		
 	}
 	public void deleteById(long id) {
-		repository.delete(id);
+		repository.deleteById(id);
 	}
 	public void deleteAll() {
 		repository.deleteAll();

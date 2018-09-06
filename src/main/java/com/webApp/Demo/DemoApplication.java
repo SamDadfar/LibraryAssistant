@@ -6,17 +6,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.webApp.Demo.controller.BookRepository;
-import com.webApp.Demo.controller.PersoneRepository;
 import com.webApp.Demo.domain.Book;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 @Autowired
 private BookRepository bookRepo;
-PersoneRepository personeRepo;
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-	
 	}
 
 	@Override

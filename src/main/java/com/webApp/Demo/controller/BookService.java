@@ -23,6 +23,6 @@ public class BookService {
 		bookRepo.save(book);
 	}
 	public void delete(long id) {
-		bookRepo.delete(id);
+		bookRepo.deleteById(id);
 	}
 }
